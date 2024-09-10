@@ -1,7 +1,9 @@
 package local.picpay.picpay_backend.domain.user;
 
 import jakarta.persistence.*;
+import local.picpay.picpay_backend.dto.UserDTO;
 import lombok.*;
+import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
 
@@ -28,4 +30,8 @@ public class User {
     private BigDecimal balance;
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+  public User(UserDTO data){
+      BeanUtils.copyProperties(data, this);
+  }
 }

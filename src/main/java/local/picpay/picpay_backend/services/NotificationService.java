@@ -21,10 +21,10 @@ public class NotificationService {
 
         ResponseEntity<String> notificationResponse = restTemplate.postForEntity("https://util.devi.tools/api/v1/notify", notificationRequest, String.class);
 
-      //  if (!(notificationResponse.getStatusCode() == HttpStatus.OK)){
-      //      System.out.println("Error sending notification");
-      //      throw new Exception("Notify service is down!");
-//}
+        if (!(notificationResponse.getStatusCode() == HttpStatus.OK)){
+            System.out.println("Error sending notification");
+            throw new Exception("Notify service is down!");
+        }
 
         System.out.println("Notificaçao enviada");
     }
